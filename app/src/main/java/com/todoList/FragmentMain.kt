@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.todoList.databinding.FragmentMaiinBinding
 import com.todoList.databinding.FragmentMainBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentMain : Fragment() {
     private val viewModel: MainViewModel by viewModel()
     private val navController: NavController by lazy { findNavController() }
-
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
@@ -27,18 +26,21 @@ class FragmentMain : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.load(false)
+        viewModel.getAll()
 
-        viewModel.mod.observe(viewLifecycleOwner) {
+        viewModel.list.observe(viewLifecycleOwner) {
             binding.mainRv.adapter = ListAdapter(
                 it,
-                clickDelete = {
-                },
+                clickDelete = { viewModel.deleteTodo(it) },
                 onClick = {
                     navController.navigate(
-                        ContainerFragmentDirections.actionContainerFragmentToDetailFragment(it)
-                    )
+                        FragmentMainDirections.actionFragmentMainToTextEditorFragment(it))
                 })
+        }
+
+        binding.floatingActionButton.setOnClickListener {
+            navController.navigate(
+                FragmentMainDirections.actionFragmentMainToTextEditorFragment(null))
         }
     }
 

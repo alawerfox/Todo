@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.todoList.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph.xml"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_splashFragment_to_fragmentMain"
+            app:destination="@id/fragmentMain" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="com.todoList.FragmentMain"
+        android:label="FragmentMain" >
+        <action
+            android:id="@+id/action_fragmentMain_to_textEditorFragment"
+            app:destination="@id/textEditorFragment">
+            <argument
+                android:name="arg"
+                app:nullable="true"
+                app:argType="com.todoList.db.Entity"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/textEditorFragment"
+        android:name="com.todoList.TextEditorFragment"
+        android:label="TextEditorFragment" />
+
+</navigation>

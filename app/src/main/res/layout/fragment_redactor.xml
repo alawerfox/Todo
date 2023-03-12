@@ -10,19 +10,40 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/gray">
+        app:boxStrokeColor="@color/gray"
+        android:layout_margin="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_margin="10dp"
+            android:layout_height="60dp"
             android:textSize="14sp"
+            android:hint="@string/title"
+            android:textColor="@color/black"
+            android:inputType="textCapWords" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/content_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/gray"
+        android:layout_margin="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:textSize="14sp"
+            android:hint="@string/description"
+            android:gravity="top"
             android:textColor="@color/black"
             android:inputType="textCapWords" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

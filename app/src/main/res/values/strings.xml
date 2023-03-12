@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">Todo</string>
+    <string name="app_name">Мои заметки</string>
     <string name="safe">Сохранить</string>
+    <string name="title">Название</string>
+    <string name="description">Заметка</string>
+    <string name="splash_tv">Делай заметки!</string>
+    <string name="title_default">Моя первая заметка</string>
+    <string name="description_default">Привет, мой друг! Записывай сюда заметки!</string>
 </resources>
